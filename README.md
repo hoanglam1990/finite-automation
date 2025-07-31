@@ -46,5 +46,6 @@ The list of models:
 - example of modulo three implementation using finite automation
   - run the example: go run .\examples\modulothree\main.go
   - modified input in the example for different results
+- follow example to see how to setup a finite automation
 - run all unit tests:
   - go test -v ./...
