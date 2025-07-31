@@ -4,7 +4,7 @@ This repository contains an implementation of a finite automation in Go. It incl
 
 ## 🧠 Overview
 
-The automation is composed of:
+The list of models:
 
 - `State`: Represents a node in the automation graph with an output and transition map.
 - `TransitionFunction`: Defines a rule for moving between states based on an input symbol.
