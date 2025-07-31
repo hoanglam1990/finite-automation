@@ -9,7 +9,7 @@ import (
 func main() {
 	// Create a finite set of states
 	state1, state2, state3 := models.State{}, models.State{}, models.State{}
-	state1.Initialize("0", map[string]*models.State{})
+	state1.Initialize("0", map[string]*models.State{}) // --> state 1 with output "0"
 	state2.Initialize("1", map[string]*models.State{})
 	state3.Initialize("2", map[string]*models.State{})
 
@@ -21,7 +21,7 @@ func main() {
 	tf5 := models.TransitionFunction{}
 	tf6 := models.TransitionFunction{}
 
-	tf1.Initialize(&state1, "0", &state1)
+	tf1.Initialize(&state1, "0", &state1) // --> δ(state1,0) = state1
 	tf2.Initialize(&state1, "1", &state2)
 	tf3.Initialize(&state2, "0", &state3)
 	tf4.Initialize(&state2, "1", &state1)
@@ -31,14 +31,19 @@ func main() {
 	// Create a FiniteAutomation and assgin attributes
 	fa := models.FiniteAutomation{}
 	err := fa.InitializeFiniteAutomation(
+		// Finite set of states
 		map[*models.State]*models.State{
 			&state1: &state1,
 			&state2: &state2,
 			&state3: &state3,
 		},
+		// Finite inputs
 		map[string]bool{"0": true, "1": true},
+		// Initial state
 		&state1,
+		// Accepting States
 		[]*models.State{&state1, &state2, &state3},
+		// Transition functions
 		[]models.TransitionFunction{tf1, tf2, tf3, tf4, tf5, tf6},
 	)
 
